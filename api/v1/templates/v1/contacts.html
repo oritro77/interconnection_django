@@ -5,15 +5,20 @@
     <title>Contacts</title>
 </head>
 <body>
+    <h3>Contacts</h3>
+    <!--if the contact context has been passed-->
     {% if contacts %}
         <ul>
         {% for c in contacts %}
-            <li><a href="/v1/{{ c.id }}/">{{ c.name }}</a></li>
+            <li><a href="contact/{{ c.id }}">{{ c.name }}</a></li>
+            <li>{{ c.msisdn }}</li>
+            <li>{{ c.address }}</li>
         {% endfor %}
         </ul>
     {% else %}
         <p>No contacts are available.</p>
     {% endif %}
+    <!--create the contact-->
     <h3>Create Contacts</h3>
     {% if success_message %}<p><strong>{{ success_message }}</strong></p>{% endif %}
     {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
